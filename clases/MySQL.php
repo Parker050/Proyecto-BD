@@ -9,17 +9,6 @@ class MySQLP{
     } 
 
 #Inserts ------
-    function insertarVenta (Vuelos $vuelos){
-        $id = 0;
-        if($vuelos){
-            $res = mysqli_query($this->_connectionP,"INSERT INTO ventas (idVuelo, nombre_cliente, boletos, monto) VALUES 
-                ('".$venta->getIdVuelo()."','".$venta->getNombre()."','".$venta->getBoletos()."','".$venta->getMonto()."')");
-            if($res){
-                $id = mysqli_insert_id($this->_connectionP);
-            }
-        }
-        return $id;
-    }
 
     function insertarVuelo(Vuelos $vuelos){
         $id = 0;
