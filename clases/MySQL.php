@@ -21,6 +21,26 @@ class MySQLP{
         return $id;
     }
 
+    function insertarVuelo(Vuelos $vuelos){
+        $id = 0;
+        if($vuelos){
+            $res = mysqli_query($this->_connectionP,"insert into vuelos_data.vuelos_publicos (nombre, origen, destino, hora_salida, hora_llegada, asientos_dis, precio) values 
+                (
+                '".$vuelos->getNombre()."',
+                '".$vuelos->getOrigen()."',
+                '".$vuelos->getDestino()."',
+                '".$vuelos->getHoraSalida()."',
+                '".$vuelos->getHoraLlegada()."',
+                '".$vuelos->getAsientosDis()."',
+                '".$vuelos->getPrecio()."'
+                )");
+            if($res){
+                $id = mysqli_insert_id($this->_connectionP);
+            }
+        }
+        return $id;
+    }
+
 #Actualizar ------
     function actualizarVuelo (Vuelos $vuelos){
         $res = false;

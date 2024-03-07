@@ -72,6 +72,7 @@
                                 }
                                 echo "</tbody>";                            
                             echo "</table>";
+                            echo "<a href='../adminConsults/crearVuelos.php'><button>Crear vuelo</button></a>";
                             // Free result set
                             mysqli_free_result($result);
                         } else{

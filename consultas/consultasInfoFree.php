@@ -30,14 +30,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
-                        <h2 class="pull-left">Ventas Generales</h2>
+                        <h2 class="pull-left">Ventas Genereales</h2>
                     </div>
                     <?php
                     // Include config file
-                    require_once "../configs/configVentas_Fisicas.php";
+                    require_once "../configs/configAdministrador.php";
                     
                     // Attempt select query execution
-                    $sql = "SELECT * FROM ventas;";
+                    $sql = "SELECT * FROM ventas_generales;";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
