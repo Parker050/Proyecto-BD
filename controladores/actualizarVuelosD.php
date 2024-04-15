@@ -17,7 +17,7 @@
         require_once "../clases/MySQL.php";
 
 
-        if ($_POST) {
+        if ($_POST) { 
             if (
                 isset($_POST["id"]) && isset($_POST["nombre"]) && isset($_POST["origen"]) && isset($_POST["destino"])
                 && isset($_POST["hora_salida"]) && isset($_POST["hora_llegada"]) && isset($_POST["asientos_dis"]) && isset($_POST["precio"])

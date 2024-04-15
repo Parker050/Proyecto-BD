@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<div class="container">
+ 
+<div class="container"> 
     <h2>Actualizar Vuelo</h2>
     <form action="../controladores/actualizarVuelosD.php" method="post">   
         <input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : '';?>">

@@ -89,7 +89,7 @@
                     // Close connection
                     mysqli_close($link);
                     ?>
-                    <a href="consultasInfoFree.php" class="btn btn-secondary btn-back">Regresar a InfoFree</a>
+                    <a href="consultasInfoFree.php" class="btn btn-secondary btn-back">Regresar</a>
                 </div>
             </div>        
         </div>

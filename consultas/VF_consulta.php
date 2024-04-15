@@ -2,27 +2,56 @@
 <html lang="en"> 
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <title>Vuelos Publicos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style type="text/css">
+        body {
+            background-color: silver;
+            color: #fff;
+        }
         .wrapper{
-            width: 650px;
-            margin: 0 auto;
+            width: 800px;
+            margin: 20px auto;
         }
         .page-header h2{
-            margin-top: 0;
+            margin-top: 20px;
+            font-size: 50px;
+            text-align: center;
+            color: #343a40;
         }
-        table tr td:last-child a{
-            margin-right: 15px;
+        table tr th{
+            background-color: #343a40;
+            color: #fff;
+        }
+        table tr td {
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0,0,0,.05);
+        }
+        .btn-back {
+            margin-bottom: 20px;
+        }
+        .btn-create {
+            margin-bottom: 10px;
+        }
+        .register-message {
+            text-align: center;
+            margin-top: 20px;
+            color: #212529;
+        }
+        .buy-button {
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 5px 10px;
+        }
+        .buy-button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
         }
     </style>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-        });
-    </script>
 </head>
 <body>
     <div class="wrapper">
@@ -31,6 +60,9 @@
                 <div class="col-md-12">
                     <div class="page-header clearfix">
                         <h2 class="pull-left">Vuelos</h2>
+                        <div class="float">
+                            <a href="../base_V_Fisicas.php" class="btn btn-secondary btn-back">Regresar</a>
+                        </div>
                     </div>
                     <?php
                     // Include config file
@@ -43,7 +75,6 @@
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
-                                        echo "<th>ID del vuelo</th>";
                                         echo "<th>Nombre</th>";
                                         echo "<th>Origen</th>";
                                         echo "<th>Destino</th>";
@@ -51,12 +82,12 @@
                                         echo "<th>Hora de llegada</th>";
                                         echo "<th>Asientos disponibles</th>";
                                         echo "<th>Precio por boleto</th>";
+                                        echo "<th>Comprar</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
-                                        echo "<td>" . $row['idVuelo'] . "</td>";
                                         echo "<td>" . $row['nombre'] . "</td>";
                                         echo "<td>" . $row['origen'] . "</td>";
                                         echo "<td>" . $row['destino'] . "</td>";
@@ -64,6 +95,7 @@
                                         echo "<td>" . $row['hora_llegada'] . "</td>";
                                         echo "<td>" . $row['asientos_dis'] . "</td>";
                                         echo "<td>" . $row['precio'] . "</td>";
+                                        echo "<td>" . "<a href ='../insertar_ventas/insert_VF.php?id=".$row['idVuelo']."' class='btn btn-primary'>COMPRAR</a>" . "</td>";
                                     echo "</tr>";
                                 }
                                 echo "</tbody>";                            
