@@ -7,7 +7,6 @@
 </head>
 <body>
     <a href="consultas/VD_consulta.php"><Button>Consulta</Button></a>
-    <a href="consultas/vetnasD_consulta.php"><button>Consulta de ventas</button></a>
     <a href="insertar_ventas/insert_VD.php"><button>Comprar</button></a>
 </body>
 </html>

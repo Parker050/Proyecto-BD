@@ -3,34 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style type="text/css">
+        body {
+            background-color: silver ; 
+            color: #fff;
+        }
         .wrapper{
-            width: 650px;
-            margin: 0 auto;
+            width: 800px;
+            margin: 20px auto;
         }
         .page-header h2{
-            margin-top: 0;
+            margin-top: 20px;
+            font-size: 50px;
+            text-align: center;
+            color: #343a40;
         }
-        table tr td:last-child a{
-            margin-right: 15px;
+        .button-container{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .button-container .btn{
+            margin: 1%;
+            background-color: #343a40; 
+            border-color: #f8f9fa; 
+            color: #fff;
+        }
+        table tr th{
+            background-color: #343a40;
+            color: #fff;
+        }
+        table tr td {
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0,0,0,.05);
         }
     </style>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-        });
-    </script>
 </head>
 <body>
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="page-header clearfix">
-                        <h2 class="pull-left">Ventas Genereales</h2>
+                    <div class="page-header">
+                        <h2>Ventas Generales</h2>
+                    </div>
+                    <div class="button-container">
+                        <a href="vetnasF_consulta.php" class="btn btn-primary">Consulta de ventas (Físicas)</a>
+                        <a href="vetnasD_consulta.php" class="btn btn-primary">Consulta de ventas (Digitales)</a>
                     </div>
                     <?php
                     // Include config file
@@ -40,6 +62,7 @@
                     $sql = "SELECT * FROM ventas_generales;";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
+                            echo "<div class='table-responsive'>";
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
@@ -48,7 +71,7 @@
                                         echo "<th>Nombre del cliente</th>";
                                         echo "<th>Boletos vendidos</th>";
                                         echo "<th>Monto total</th>";
-                                        echo "<th>Hora de vetna</th>";
+                                        echo "<th>Hora de venta</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -60,9 +83,11 @@
                                         echo "<td>" . $row['boletos'] . "</td>";
                                         echo "<td>" . $row['monto'] . "</td>";
                                         echo "<td>" . $row['hora_registro'] . "</td>";
-                                echo "</tbody>";     
-                                }                       
+                                    echo "</tr>";
+                                }
+                                echo "</tbody>";                            
                             echo "</table>";
+                            echo "</div>";
                             // Free result set
                             mysqli_free_result($result);
                         } else{
@@ -75,6 +100,9 @@
                     // Close connection
                     mysqli_close($link);
                     ?>
+                    <div class="button-container">
+                        <a href="../admin.php" class="btn btn-primary">Regresar</a>
+                    </div>
                 </div>
             </div>        
         </div>

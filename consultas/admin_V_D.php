@@ -2,35 +2,52 @@
 <html lang="en"> 
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <title>Administracion de Vuelos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style type="text/css">
+        body {
+            background-color: silver;
+            color: #fff;
+        }
         .wrapper{
-            width: 650px;
-            margin: 0 auto;
+            width: 800px;
+            margin: 20px auto;
         }
         .page-header h2{
-            margin-top: 0;
+            margin-top: 20px;
+            font-size: 50px;
+            text-align: center;
+            color: #343a40;
         }
-        table tr td:last-child a{
-            margin-right: 15px;
+        table tr th{
+            background-color: #343a40;
+            color: #fff;
+        }
+        table tr td {
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0,0,0,.05);
+        }
+        .btn-back {
+            margin-bottom: 20px;
+        }
+        .btn-create {
+            margin-bottom: 10px;
         }
     </style>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();   
-        });
-    </script>
 </head>
 <body>
     <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="page-header clearfix">
-                        <h2 class="pull-left">Administracion de Vuelos</h2>
+                    <div class="page-header">
+                        <h2>Administracion de Vuelos</h2>
+                    </div>
+                    <div>
+                        <a href='../adminConsults/crearVuelos.php' class='btn btn-success btn-create'>Crear vuelo</a>
                     </div>
                     <?php
                     // Include config file
@@ -40,6 +57,7 @@
                     $sql = "SELECT * FROM vuelos_publicos;";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
+                            
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
@@ -66,13 +84,13 @@
                                         echo "<td>" . $row['hora_llegada'] . "</td>";
                                         echo "<td>" . $row['asientos_dis'] . "</td>";
                                         echo "<td>" . $row['precio'] . "</td>";
-                                        echo "<td>" . "<a href ='../adminConsults/actualizarVuelos.php?id=".$row['idVuelo']."'>Actualizar </a>" . "</td>";
-                                        echo "<td>" . "<a href ='../adminConsults/eliminarVuelos.php?id=".$row['idVuelo']."'>Borrar </a>" . "</td>";
+                                        echo "<td>" . "<a href ='../adminConsults/actualizarVuelos.php?id=".$row['idVuelo']."' class='btn btn-primary'>Actualizar </a>" . "</td>";
+                                        echo "<td>" . "<a href ='../adminConsults/eliminarVuelos.php?id=".$row['idVuelo']."' class='btn btn-danger'>Borrar </a>" . "</td>";
                                     echo "</tr>";
                                 }
                                 echo "</tbody>";                            
                             echo "</table>";
-                            echo "<a href='../adminConsults/crearVuelos.php'><button>Crear vuelo</button></a>";
+                            echo "<a href='../admin.php' class='btn btn-secondary btn-back'>Regresar a admin</a>";
                             // Free result set
                             mysqli_free_result($result);
                         } else{

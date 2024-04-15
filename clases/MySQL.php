@@ -104,4 +104,6 @@ function insertarVentaD (VentaV $venta){
     }
 }
 
+
+
 ?>
