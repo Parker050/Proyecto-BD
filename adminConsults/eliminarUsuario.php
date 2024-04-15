@@ -10,14 +10,14 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eliminar Vuelo</title>
+    <title>Eliminar Usuario</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<form action="../controladores/borrarVuelosD.php" method="post">   
+<form action="../controladores/borrarUsuario.php" method="post">   
     <input type="hidden" name="id" id="" value="<?php echo isset($_GET['id']) ? $_GET['id'] : '';?>">
-    <label for="">¿Está seguro de borrar el vuelo?</label>
+    <label for="">¿Está seguro de borrar el usuario?</label>
     <button type="submit">Borrar</button>
 </form>
 </body>

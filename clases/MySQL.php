@@ -125,10 +125,15 @@ class MySQLC{
         }
         return $id;
     }
-    
-    
 
-
+    function borrarCliente (Cliente $cliente){
+        $res = false;
+        if($cliente -> getIdUser()){
+            $query = "DELETE FROM clientes WHERE idUser = ".$cliente->getIdUser();
+            $res = mysqli_query($this->_connectionD, $query);
+        }
+        return $res;
+    }
 
 }
 
