@@ -74,7 +74,7 @@
 </head>
 
 <body>
-
+ 
     <div class="registration-container">
         <h2>Registro de Cliente</h2>
         <form action="controladores/insertarCliente.php" method="post">

@@ -57,7 +57,7 @@
         }
     </style>
 </head>
-<body>
+<body> 
     <div class="container">
         <h2>Insertar Usuario</h2>
         <form action="../controladores/insertVentaVD.php" method="post">

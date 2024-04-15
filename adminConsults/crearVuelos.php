@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+ 
 <form action="../controladores/insertarVuelosD.php" method="post">   
     <label for="">Nombre</label>    
     <input type="text" name="nombre" id="">

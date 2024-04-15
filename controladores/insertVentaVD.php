@@ -14,15 +14,18 @@
         <h2>Venta</h2>
         <?php
         require_once "../modelos/venta_vuelos.php";
+        require_once "../modelos/vuelos.php";
         require_once "../clases/MySQL.php";
 
         if ($_POST) {
             if (isset($_POST["id"]) && isset($_POST["nombre_cliente"]) && isset($_POST["boletos"]) && isset($_POST["monto"])) {
-        
-                $venta = new VentaV(0, $_POST["id"], $_POST["nombre_cliente"], $_POST["boletos"], $_POST["monto"], "");
 
+                $venta = new VentaV(0, $_POST["id"], $_POST["nombre_cliente"], $_POST["boletos"], $_POST["monto"], "");
+                $boleto = new boletos($_POST["id"],$_POST["boletos"]);
+                $mysqlB = new MySQLP();
                 $mysql = new MySqlD();
                 if ($mysql->insertarVentaD($venta)) {
+                    $mysqlB->actualizarBoletos($boleto);
                     echo "Vente efectuada correctamente";
                 } else {
                     echo "Solicitud invalida";

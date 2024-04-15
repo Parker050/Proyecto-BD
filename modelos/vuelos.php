@@ -1,5 +1,26 @@
 <?php
 
+class boletos{
+    private $_idVuelo;
+    private $_asientos_dis;
+ 
+    function __construct($idVuelo,$asientos_dis){
+        $this->_idVuelo = $idVuelo;
+        $this->_asientos_dis = $asientos_dis;
+    }
+
+    function getIdVuelo(){
+        return $this->_idVuelo;
+    }
+    function getAsientosDis(){
+        return $this->_asientos_dis;
+    }
+    function setAsientosDis($asientos_dis){
+        $this->_asientos_dis = $_asientos_dis;
+    }
+}
+
+
 class Vuelos{
     private $_idVuelo;
     private $_nombre;

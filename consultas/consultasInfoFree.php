@@ -57,7 +57,7 @@
                     <?php
                     // Include config file
                     require_once "../configs/configAdministrador.php";
-                    
+                     
                     // Attempt select query execution
                     $sql = "SELECT * FROM ventas_generales;";
                     if($result = mysqli_query($link, $sql)){

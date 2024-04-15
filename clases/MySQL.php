@@ -6,7 +6,7 @@ class MySQLP{
         $this->_connectionP = mysqli_connect("localhost","JosePancho","Pkerszhz55","vuelos_data", 3306);
         if(!$this->_connectionP)
             echo "Sin exito";
-    } 
+    }  
 
 #Inserts ------
 
@@ -41,6 +41,16 @@ class MySQLP{
             "hora_llegada ='".$vuelos->getHoraLlegada()."',".
             "asientos_dis ='".$vuelos->getAsientosDis()."',".
             "precio ='".$vuelos->getPrecio()."' WHERE idVuelo = ".$vuelos->getIdVuelo();
+            $res = mysqli_query($this->_connectionP, $query);
+        }
+        return $res;
+    }
+
+    function actualizarBoletos (boletos $boletos){
+        $res = false;
+        if($boletos->getIdVuelo()){
+            $query = "UPDATE vuelos_publicos SET asientos_dis = asientos_dis - " . $boletos->getAsientosDis() 
+            . " WHERE idVuelo = " . $boletos->getIdVuelo();
             $res = mysqli_query($this->_connectionP, $query);
         }
         return $res;

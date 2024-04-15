@@ -30,7 +30,7 @@
                     echo "Solicitud invalida";
                 }
             }
-        }
+        } 
         ?>
     </div>
     <script>
