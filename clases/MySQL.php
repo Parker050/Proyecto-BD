@@ -105,5 +105,32 @@ function insertarVentaD (VentaV $venta){
 }
 
 
+#Clientes-----------------------------------------------------------------
+class MySQLC{
+    public $_connectionD;
+    function __construct(){
+        $this->_connectionD = mysqli_connect("localhost","JosePancho","Pkerszhz55","infoFreeFly", 3306);
+        if(!$this->_connectionD)
+            echo "Sin exito";
+    } 
+
+    function insertarCliente(Cliente $cliente) {
+        $id = 0;
+        if ($cliente) {
+            $res = mysqli_query($this->_connectionD, "INSERT INTO clientes (nombre, edad, telefono, userName, pass) VALUES 
+                ('" . $cliente->getNombre() . "','" . $cliente->getEdad() . "','" . $cliente->getTelefono() . "','" . $cliente->getUserName() . "','" . $cliente->getPass() . "')");
+            if ($res) {
+                $id = mysqli_insert_id($this->_connectionD);
+            }
+        }
+        return $id;
+    }
+    
+    
+
+
+
+}
+
 
 ?>

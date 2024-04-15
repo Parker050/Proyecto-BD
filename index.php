@@ -123,9 +123,9 @@ require "controladores/validacionUsuario.php";
 
     </form>
     
-    <a href="#"><button>Ingresar sin Usuario</button></a>
+    <a href="consultas/VD_consulta.php"><button>Ingresar sin Usuario</button></a>
 
-    <p>¿No tienes una cuenta? <a href="registro.php">Regístrate aquí</a></p>
+    <p>¿No tienes una cuenta? <a href="registrarCliente.php">Regístrate aquí</a></p>
 </div>
 </body>
 </html>

@@ -27,9 +27,9 @@ if (!empty($_POST["ingresar"])) {
                 $mensaje = '<div class="alert alert-danger" role="alert">Acceso denegado</div>';
             }
         } elseif ($tipo == "trabajador") {
-            $sql = $conexion->query("SELECT * FROM clientes WHERE userName = '$user' AND pass = '$pass'");
+            $sql = $conexion->query("SELECT * FROM empleados WHERE userName = '$user' AND pass = '$pass'");
             if ($sql && $datos = $sql->fetch_object()) {
-                header("location:base_V_Digitales.php");
+                header("location:base_V_Fisicas.php");
                 exit();
             } else {
                 $mensaje = '<div class="alert alert-danger" role="alert">Acceso denegado</div>';
