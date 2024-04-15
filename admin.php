@@ -47,6 +47,12 @@
         .button:hover {
             background-color: #212529; /* Color más oscuro al pasar el mouse */
         }
+        .logout-button {
+            background-color: #dc3545; /* Color rojo */
+        }
+        .logout-button:hover {
+            background-color: #c82333; /* Color más oscuro al pasar el mouse */
+        }
     </style>
 </head>
 <body>
@@ -58,6 +64,7 @@
         <a href="consultas/consultasInfoFree.php" class="button">Consulta de ventas</a>
         <a href="#" class="button">Consulta de empleados</a>
         <a href="#" class="button">Consulta de usuarios</a>
+        <a href="index.php" class="button logout-button">Logout</a>
     </div>
 </div>
 
