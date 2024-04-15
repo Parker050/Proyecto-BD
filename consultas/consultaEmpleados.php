@@ -44,54 +44,47 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h2>Administracion de Vuelos</h2>
+                        <h2>Consulta de Empleados</h2>
+                        <div>
+                        <a href='../adminConsults/crearEmpelado.php' class='btn btn-success btn-create'>Agregar Empleado</a>
                     </div>
-                    <div> 
-                        <a href='../adminConsults/crearVuelos.php' class='btn btn-success btn-create'>Crear vuelo</a>
                     </div>
                     <?php
-                    // Include config file
-                    require_once "../configs/configVuelos_Data.php";
+                    require_once "../configs/configUsers.php";
                     
-                    // Attempt select query execution
-                    $sql = "SELECT * FROM vuelos_publicos;";
-                    if($result = mysqli_query($link, $sql)){
+                    $sql = "SELECT * FROM empleados;";
+                    if($result = mysqli_query($concexion, $sql)){
                         if(mysqli_num_rows($result) > 0){
-                            
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
-                                        echo "<th>ID del vuelo</th>";
+                                        echo "<th>ID Del usuario</th>";
                                         echo "<th>Nombre</th>";
-                                        echo "<th>Origen</th>";
-                                        echo "<th>Destino</th>";
-                                        echo "<th>Hora de salida</th>";
-                                        echo "<th>Hora de llegada</th>";
-                                        echo "<th>Asientos disponibles</th>";
-                                        echo "<th>Precio por boleto</th>";
-                                        echo "<th>Actualizar</th>";
+                                        echo "<th>Edad</th>";
+                                        echo "<th>Telefono</th>";
+                                        echo "<th>Nombre de usuario</th>";
+                                        echo "<th>Contraseña</th>";
+                                        echo "<th>Hora de Registro</th>";
                                         echo "<th>Borrar</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
-                                        echo "<td>" . $row['idVuelo'] . "</td>";
+                                        echo "<td>" . $row['idUser'] . "</td>";
                                         echo "<td>" . $row['nombre'] . "</td>";
-                                        echo "<td>" . $row['origen'] . "</td>";
-                                        echo "<td>" . $row['destino'] . "</td>";
-                                        echo "<td>" . $row['hora_salida'] . "</td>";
-                                        echo "<td>" . $row['hora_llegada'] . "</td>"; 
-                                        echo "<td>" . $row['asientos_dis'] . "</td>";
-                                        echo "<td>" . $row['precio'] . "</td>";
-                                        echo "<td>" . "<a href ='../adminConsults/actualizarVuelos.php?id=".$row['idVuelo']."' class='btn btn-primary'>Actualizar </a>" . "</td>";
-                                        echo "<td>" . "<a href ='../adminConsults/eliminarVuelos.php?id=".$row['idVuelo']."' class='btn btn-danger'>Borrar </a>" . "</td>";
+                                        echo "<td>" . $row['edad'] . "</td>";
+                                        echo "<td>" . $row['telefono'] . "</td>";
+                                        echo "<td>" . $row['userName'] . "</td>";
+                                        echo "<td>" . $row['pass'] . "</td>"; 
+                                        echo "<td>" . $row['hora_registro'] . "</td>";
+                                        echo "<td>" . "<a href ='../adminConsults/eliminarEmpleado.php?id=".$row['idUser']."' class='btn btn-danger'>Borrar </a>" . "</td>";
                                     echo "</tr>";
                                 }
                                 echo "</tbody>";                            
                             echo "</table>";
                             echo "<a href='../admin.php' class='btn btn-secondary btn-back'>Regresar</a>";
-                            // Free result set
+
                             mysqli_free_result($result);
                         } else{
                             echo "<p class='lead'><em>No records were found.</em></p>";
@@ -99,9 +92,8 @@
                     } else{
                         echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
                     }
- 
-                    // Close connection
-                    mysqli_close($link);
+
+                    mysqli_close($concexion);
                     ?>
                 </div>
             </div>        

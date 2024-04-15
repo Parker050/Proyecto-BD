@@ -62,7 +62,7 @@
     <div class="button-container">
         <a href="consultas/admin_V_D.php" class="button">Vuelos</a>
         <a href="consultas/consultasInfoFree.php" class="button">Consulta de ventas</a>
-        <a href="consultas/consultasUsuarios.php" class="button">Consulta de empleados</a>
+        <a href="consultas/consultaEmpleados.php" class="button">Consulta de empleados</a>
         <a href="consultas/consultasUsuarios.php" class="button">Consulta de usuarios</a>
         <a href="index.php" class="button logout-button">Logout</a>
     </div>

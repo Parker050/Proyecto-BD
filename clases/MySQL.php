@@ -126,10 +126,32 @@ class MySQLC{
         return $id;
     }
 
+    function insertarEmpleado(Cliente $cliente) {
+        $id = 0;
+        if ($cliente) {
+            $res = mysqli_query($this->_connectionD, "INSERT INTO empleados (nombre, edad, telefono, userName, pass) VALUES 
+                ('" . $cliente->getNombre() . "','" . $cliente->getEdad() . "','" . $cliente->getTelefono() . "','" . $cliente->getUserName() . "','" . $cliente->getPass() . "')");
+            if ($res) {
+                $id = mysqli_insert_id($this->_connectionD);
+            }
+        }
+        return $id;
+    }
+
+
     function borrarCliente (Cliente $cliente){
         $res = false;
         if($cliente -> getIdUser()){
             $query = "DELETE FROM clientes WHERE idUser = ".$cliente->getIdUser();
+            $res = mysqli_query($this->_connectionD, $query);
+        }
+        return $res;
+    }
+
+    function borrarEmpleado (Cliente $cliente){
+        $res = false;
+        if($cliente -> getIdUser()){
+            $query = "DELETE FROM empleados WHERE idUser = ".$cliente->getIdUser();
             $res = mysqli_query($this->_connectionD, $query);
         }
         return $res;
