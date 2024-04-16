@@ -7,7 +7,7 @@ class MySQLP{
         if(!$this->_connectionP)
             echo "Sin exito";
     }  
-
+ 
 #Inserts ------
 
     function insertarVuelo(Vuelos $vuelos){

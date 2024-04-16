@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <h2>Crear Vuelo</h2>
+        <h2>Actualizar Vuelo</h2>
         <?php
         require_once "../modelos/vuelos.php";
         require_once "../clases/MySQL.php";

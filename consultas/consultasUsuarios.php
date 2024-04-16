@@ -75,7 +75,7 @@
                                         echo "<td>" . $row['userName'] . "</td>";
                                         echo "<td>" . $row['pass'] . "</td>"; 
                                         echo "<td>" . $row['hora_registro'] . "</td>";
-                                        echo "<td>" . "<a href ='../adminConsults/eliminarEmpleado.php?id=".$row['idUser']."' class='btn btn-danger'>Borrar </a>" . "</td>";
+                                        echo "<td>" . "<a href ='../adminConsults/eliminarUsuario.php?id=".$row['idUser']."' class='btn btn-danger'>Borrar </a>" . "</td>";
                                     echo "</tr>";
                                 }
                                 echo "</tbody>";                            
