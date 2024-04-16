@@ -1,3 +1,8 @@
+<?php
+$jsonInsert ='"Sector": "base_V_Fisicas.php","Usuario": "Empleado"';
+require "transactionMongo.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

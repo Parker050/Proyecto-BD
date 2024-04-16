@@ -1,3 +1,8 @@
+<?php
+$jsonInsert ='"Sector": "base_V_Digitales.php","Usuario": "Cliente"';
+require "transactionMongo.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

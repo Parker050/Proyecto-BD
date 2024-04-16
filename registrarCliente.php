@@ -1,3 +1,8 @@
+<?php
+$jsonInsert ='"Sector": "registroCliente.php","Usuario": "Usuario sin registro"';
+require "transactionMongo.php";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 

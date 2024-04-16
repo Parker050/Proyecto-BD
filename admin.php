@@ -1,3 +1,8 @@
+<?php
+$jsonInsert ='"Sector": "admin.php","Usuario": "Administrador"';
+require "transactionMongo.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,6 +1,6 @@
 <?php
-/*$jsonInsert ='"sector": "index.php"';
-require "transactionMongo.php";*/
+$jsonInsert ='"sector": "index.php"';
+require "transactionMongo.php";
 require "controladores/validacionUsuario.php";
 ?>
 <!DOCTYPE html>
